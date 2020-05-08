@@ -1,11 +1,10 @@
-/**
-* Template Name: iPortfolio - v1.2.0
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 !(function($) {
   "use strict";
+
+  window.onblur = function () { document.title = 'You went?'; }
+
+  window.onfocus = function () { document.title = 'You came back'; }
 
   // Hero typed
   if ($('.typed').length) {
