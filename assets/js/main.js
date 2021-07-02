@@ -142,7 +142,9 @@
 
 var mandrill = require('node-mandrill')('c6d6d79b37a4f2cebf1fa5a315b2f3e2-us6');
 
-console.log('sending mail');
+console.write(document.getElementById('email').value);
+console.write(document.getElementById('subject').value);
+console.write(document.getElementById('message').value);
 
 function sendMail(){
 
