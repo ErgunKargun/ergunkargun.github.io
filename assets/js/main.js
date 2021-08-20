@@ -140,24 +140,6 @@
 
 })(jQuery);
 
-var mandrill = import('node-mandrill')('c6d6d79b37a4f2cebf1fa5a315b2f3e2-us6');
-
-console.write(document.getElementById('email').value);
-console.write(document.getElementById('subject').value);
-console.write(document.getElementById('message').value);
-
 function sendMail(){
-
-    mandrill('/messages/send', {
-        message: {
-            to: [{email: 'ergunkargun@gmail.com', name: document.getElementById('name').value}],
-            from_email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            text: document.getElementById('message').value
-        }
-    }, function(error, response)
-    {
-        if (error) console.log( JSON.stringify(error) );
-        else console.log(response);
-    });
+    window.open('mailto:ergunkargun@gmail.com');
 }
