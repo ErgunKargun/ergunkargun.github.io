@@ -139,7 +139,3 @@
   });
 
 })(jQuery);
-
-function sendMail(){
-    window.open('mailto:ergunkargun@gmail.com');
-}
