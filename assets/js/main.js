@@ -141,15 +141,15 @@
 })(jQuery);
 
 function sendEmail(){
-
   const email = $("#email").val();
   const subject = $("#subject").val();
   const name = $("#name").val();
   const message = $("#message").val();
 
-  const data = {email, subect, name, message};
-  console.table(data);
+  const data = {email, subject, name, message};
   
+  console.table(data);
+
   $.ajax({
     url: "https://formsubmit.co/ajax/ergunkargun@gmail.com",
     method: "POST",
