@@ -141,6 +141,8 @@
 })(jQuery);
 
 function sendEmail() {
+  document.getElementById("#emailForm").reset();
+  
   const email = $("#email").val();
   const subject = $("#subject").val();
   const name = $("#name").val();
@@ -160,8 +162,7 @@ function sendEmail() {
       message: message
     },
     dataType: "json",
-    success: function () {
-      document.getElementById("#emailForm").reset();
+    success: function () {      
       $("div.sent-message").fadeIn(); 
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
