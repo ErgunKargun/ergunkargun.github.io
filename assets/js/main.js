@@ -1,5 +1,5 @@
 
-!(function($) {
+!(function ($) {
   "use strict";
 
   window.onblur = function () { document.title = 'You went?'; }
@@ -20,7 +20,7 @@
   }
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
-  $(document).on('click', '.nav-menu a, .scrollto', function(e) {
+  $(document).on('click', '.nav-menu a, .scrollto', function (e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       e.preventDefault();
       var target = $(this.hash);
@@ -46,12 +46,12 @@
     }
   });
 
-  $(document).on('click', '.mobile-nav-toggle', function(e) {
+  $(document).on('click', '.mobile-nav-toggle', function (e) {
     $('body').toggleClass('mobile-nav-active');
     $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
   });
 
-  $(document).click(function(e) {
+  $(document).click(function (e) {
     var container = $(".mobile-nav-toggle");
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       if ($('body').hasClass('mobile-nav-active')) {
@@ -65,10 +65,10 @@
   var nav_sections = $('section');
   var main_nav = $('.nav-menu, #mobile-nav');
 
-  $(window).on('scroll', function() {
+  $(window).on('scroll', function () {
     var cur_pos = $(this).scrollTop() + 10;
 
-    nav_sections.each(function() {
+    nav_sections.each(function () {
       var top = $(this).offset().top,
         bottom = top + $(this).outerHeight();
 
@@ -85,7 +85,7 @@
   });
 
   // Back to top button
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
       $('.back-to-top').fadeIn('slow');
     } else {
@@ -93,7 +93,7 @@
     }
   });
 
-  $('.back-to-top').click(function() {
+  $('.back-to-top').click(function () {
     $('html, body').animate({
       scrollTop: 0
     }, 1500, 'easeInOutExpo');
@@ -140,25 +140,32 @@
 
 })(jQuery);
 
-function sendEmail(){
+function sendEmail() {
   const email = $("#email").val();
   const subject = $("#subject").val();
   const name = $("#name").val();
   const message = $("#message").val();
 
-  const data = {email, subject, name, message};
-  
+  const data = { email, subject, name, message };
+
   console.table(data);
 
   $.ajax({
     url: "https://formsubmit.co/ajax/ergunkargun@gmail.com",
     method: "POST",
     data: {
-        email: email,
-        subject: subject,
-        name: name,
-        message: message
+      email: email,
+      subject: subject,
+      name: name,
+      message: message
     },
-    dataType: "json"
-});
+    dataType: "json",
+    success: function () {
+      $("#emailForm").reset();
+      $("div.sent-message").fadeIn(); 
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("Status: " + textStatus); alert("Error: " + errorThrown);
+    }
+  });
 }
