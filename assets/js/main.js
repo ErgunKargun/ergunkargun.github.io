@@ -163,7 +163,7 @@ function sendEmail() {
     dataType: "json",
     success: function () {      
       alert("Your message has been sent. Thank you!");
-      $("#emailForm").reset();
+      $("#emailForm")[0].reset();
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
       alert("Status: " + textStatus); alert("Error: " + errorThrown);
