@@ -161,7 +161,7 @@ function sendEmail() {
     },
     dataType: "json",
     success: function () {
-      $("#emailForm").reset();
+      document.getElementById("#emailForm").reset();
       $("div.sent-message").fadeIn(); 
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
