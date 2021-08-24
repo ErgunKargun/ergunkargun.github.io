@@ -141,8 +141,7 @@
 })(jQuery);
 
 function sendEmail() {
-  document.getElementById("emailForm").reset();
-
+  
   const email = $("#email").val();
   const subject = $("#subject").val();
   const name = $("#name").val();
@@ -164,6 +163,7 @@ function sendEmail() {
     dataType: "json",
     success: function () {      
       alert("Your message has been sent. Thank you!");
+      $("#emailForm").reset();
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
       alert("Status: " + textStatus); alert("Error: " + errorThrown);
